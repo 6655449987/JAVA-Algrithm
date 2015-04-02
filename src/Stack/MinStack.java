@@ -16,17 +16,18 @@ import java.util.ArrayList;
  *
  */
 public class MinStack {
-
-	ArrayList stackList = new ArrayList();
-    ArrayList minList = new ArrayList();
 	
 	public static void main(String[] args) {
 		
 		//TODO: do nothing;
 		
 	}
-	
-	public void push(int x) {
+}
+
+class MinStackClass{
+	ArrayList stackList = new ArrayList();
+    ArrayList minList = new ArrayList();
+    public void push(int x) {
         if(stackList.size() ==0){
             stackList.add(x);
             minList.add(x);
@@ -45,5 +46,4 @@ public class MinStack {
     public int getMin() {
         return (int)minList.get(minList.size()-1);
     }
-
 }
