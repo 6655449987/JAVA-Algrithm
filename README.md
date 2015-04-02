@@ -1,8 +1,8 @@
 # JAVA-Algrithm
 Java Algrithm Practice Code
 
-该项目用于私人算法练习
+����Ŀ����˽���㷨��ϰ
 
-主要来源：
-  
-  - LeetCode
+��Ҫ��Դ��
+
+LeetCode
