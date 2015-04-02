@@ -14,6 +14,7 @@ package Bit;
  * 记录如下：
  * ------------------------
  * >>=	x>>=y	x=x>>y			“有符号”右移	将运算符左边的对象向右移动运算符右边指定的位数。使用符号扩展机制，也就是说，如果值为正，则在高位补0，如果值为负，则在高位补1.
+ * 								--	x<<y 相当于 x*2y ；x>>y相当于x/2y								
  * >>>=	a>>>=y	x=x>>>y			“无符号”右移	将运算符左边的对象向右移动运算符右边指定的位数。采用0扩展机制，也就是说，无论值的正负，都在高位补0.
  * <<=	a<<=y	x=x<<y			左移			将运算符左边的对象向左移动运算符右边指定的位数（在低位补0）
  * &=	x&=y	x=x&y			与操作			10000 & 11111 = 10000	必须全为1才为1
@@ -28,7 +29,7 @@ public class FindSingleNumber {
 	public static void main(String[] args) {
 		
 		FindSingleNumber o = new FindSingleNumber();
-		int[] a = {1,1,1,1,2,1,1,1,1,1,1,1};
+		int[] a = {1,1,2,2,3,4,7,6,5,3,4,7,6};
 		
 		System.out.println(String.format("Result: %s", o.singleNumber(a)));
 		
@@ -36,7 +37,11 @@ public class FindSingleNumber {
 	}
 	
 	public int singleNumber(int[] A) {
-        int a=0;
+		
+        /* 1、任何数和0异或都是自身
+         * 2、两两相同的数异或为0
+         */
+		int a=0;
         for(int i:A)
             a^=i;
         return a;
