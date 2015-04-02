@@ -21,7 +21,7 @@ public class RotateArray {
 		
 		System.out.println("ori -> "+o.numsToString(nums));
 		o.rotate(nums, 3);
-		System.out.println("rotate for 3  -> :"+o.numsToString(nums));
+		System.out.println("rotate for 3  ->  "+o.numsToString(nums));
 	}
 
 	
