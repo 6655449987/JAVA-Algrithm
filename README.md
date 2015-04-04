@@ -6,4 +6,4 @@ Java Algrithm Practice Code
 主要来源：
 	> LeetCode
 	
-目前进度:125 Valid Palindrome
+目前进度:已跟进，与LeetCode同步。
