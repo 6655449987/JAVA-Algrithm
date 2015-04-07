@@ -16,6 +16,10 @@ package Math;
 public class RomantoInteger {
 
 	public static void main(String[] args) {
+		
+		RomantoInteger o = new RomantoInteger();
+		String s = "IV";
+		System.out.println(String.format("Integer for %s is %s", s, o.romanToInt(s)));
 
 	}
 	
