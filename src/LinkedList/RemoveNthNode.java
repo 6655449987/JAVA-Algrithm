@@ -3,6 +3,8 @@ package LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 
+import LinkedList.ListNode;
+
 /**
  * Given a linked list, remove the nth node from the end of list and return its
  * head.
@@ -48,19 +50,5 @@ public class RemoveNthNode {
 
 	}
 
-	/**
-	 * Definition of Linked List
-	 * @author shengyuan
-	 *
-	 */
-	public class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-			next = null;
-		}
-
-	}
+	
 }
