@@ -1,4 +1,5 @@
 package Tree;
+import Tree.TreeNode;
 
 /**
  * Given two binary trees, write a function to check if they are equal or not.
@@ -13,14 +14,14 @@ public class SameTree {
 
 	public static void main(String[] args) {
 		SameTree o = new SameTree();
-		iTreeNode p = new iTreeNode(0);
-		iTreeNode q = new iTreeNode(0);
+		TreeNode p = new TreeNode(0);
+		TreeNode q = new TreeNode(0);
 		
 		System.out.println(String.format("Compare TreeNode q and p and Result:\r%s", o.isSameTree(p, q)));
 		
 	}
 	
-	public boolean isSameTree(iTreeNode p, iTreeNode q) {
+	public boolean isSameTree(TreeNode p, TreeNode q) {
 		//初始条件默认为真
 		boolean same = true;
         if(p == null && q == null){
@@ -34,7 +35,7 @@ public class SameTree {
         }
     }
 	
-	private boolean sameTree(iTreeNode p, iTreeNode q, boolean same) {
+	private boolean sameTree(TreeNode p, TreeNode q, boolean same) {
 	    
 	    //终点检测
 	    if(p == null && q == null){
@@ -44,10 +45,10 @@ public class SameTree {
 	    } else {
 	    	
 	    	//递归检测
-	        iTreeNode pLeftLeaf = p.left == null ? null : p.left;
-            iTreeNode pRightLeaf = p.right == null ? null : p.right;
-            iTreeNode qLeftLeaf = q.left == null ? null : q.left;
-            iTreeNode qRightLeaf = q.right == null ? null : q.right;
+	        TreeNode pLeftLeaf = p.left == null ? null : p.left;
+            TreeNode pRightLeaf = p.right == null ? null : p.right;
+            TreeNode qLeftLeaf = q.left == null ? null : q.left;
+            TreeNode qRightLeaf = q.right == null ? null : q.right;
         
             if(q.val != p.val){
         	    same = false;
@@ -77,15 +78,4 @@ public class SameTree {
 
 }
 
-/**
- * Definition for binary tree
- */
-class iTreeNode {
-	int val;
-	iTreeNode left;
-	iTreeNode right;
 
-	public iTreeNode(int x) {
-		val = x;
-	}
-}

@@ -1,5 +1,7 @@
 package Tree;
 
+import Tree.TreeNode;
+
 /**
  * Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
  * 
@@ -23,8 +25,10 @@ package Tree;
 public class PathSum {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		PathSum o = new PathSum();
 	}
+	
+	
 
 }
+

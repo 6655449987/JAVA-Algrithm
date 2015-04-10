@@ -1,4 +1,5 @@
 package Tree;
+import Tree.TreeNode;
 
 /**
  * Given a binary tree, find its maximum depth.
@@ -27,15 +28,4 @@ public class MaximumDepthBinaryTree {
 }
 
 
-/**
- * Definition for binary tree
- * 
- * @author shengyuan
- *
- */
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-	TreeNode(int x) { val = x; }
-}
+
