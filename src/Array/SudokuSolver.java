@@ -18,66 +18,68 @@ public class SudokuSolver {
 				{ '.', '6', '.', '.', '.', '.', '2', '8', '.' },
 				{ '.', '.', '.', '4', '1', '9', '.', '.', '5' },
 				{ '.', '.', '.', '.', '8', '.', '.', '7', '9' } };
-		
+
 		o.solveSudoku(board);
-		
 
 	}
-	
+
 	public void solveSudoku(char[][] board) {
-		boolean done  = false;
-		int step=0;
-		while(!done){
+		boolean done = false;
+		int step = 0;
+		while (!done) {
 			done = done(solveSudokuOneStep(board));
-			System.out.println(String.format("Step %s\r%s\r", step, printBoard(board)));
+			System.out.println(String.format("Step %s\r%s\r", step,
+					printBoard(board)));
 			step++;
 		}
-		
-    }
-	
+
+	}
+
 	/**
 	 * 判断是否结束
+	 * 
 	 * @param board
 	 * @return
 	 */
-	private boolean done(char[][] board){
+	private boolean done(char[][] board) {
 		for (int i = 0; i < 9; i++) {
 			for (int t = 0; t < 9; t++) {
-				if(board[i][t] == '.'){
+				if (board[i][t] == '.') {
 					return false;
 				}
 			}
 		}
 		return true;
 	}
-	
+
 	/**
 	 * 解决一次搜索
+	 * 
 	 * @param board
 	 * @return
 	 */
 	private char[][] solveSudokuOneStep(char[][] board) {
 		List<Cell> cells = iniCells(board);
-		for(Cell o:cells){
-			if(o.solver.size()==1){
+		for (Cell o : cells) {
+			if (o.solver.size() == 1) {
 				board[o.x][o.y] = o.solver.get(0);
 			}
 		}
 		return board;
 	}
-	
+
 	/**
 	 * 初始化单元列表
+	 * 
 	 * @param board
 	 * @return
 	 */
-	private List<Cell> iniCells(char[][] board){
+	private List<Cell> iniCells(char[][] board) {
 		List<Cell> cells = new ArrayList<Cell>();
 		for (int i = 0; i < 9; i++) {
 			for (int t = 0; t < 9; t++) {
-				if(board[i][t] == '.')
-				{
-					cells.add(getCellSolver(i,t,board));
+				if (board[i][t] == '.') {
+					cells.add(getCellSolver(i, t, board));
 				}
 			}
 		}
@@ -86,6 +88,7 @@ public class SudokuSolver {
 
 	/**
 	 * 根据坐标得到某一坐标的solver;
+	 * 
 	 * @param x
 	 * @param y
 	 * @return
@@ -95,14 +98,14 @@ public class SudokuSolver {
 		List<List<Character>> lists = new ArrayList<List<Character>>();
 		lists.add(getTempSolver(getVertical(board, x)));
 		lists.add(getTempSolver(getHorizontal(board, y)));
-		int bx = x /3;
-		int by = y /3;
-		lists.add(getTempSolver(getBlock(board,bx,by)));
-		
+		int bx = x / 3;
+		int by = y / 3;
+		lists.add(getTempSolver(getBlock(board, bx, by)));
+
 		list = mergeList(lists);
-		
-		return new Cell(x,y,list);
-		
+
+		return new Cell(x, y, list);
+
 	}
 
 	/**
@@ -197,11 +200,11 @@ public class SudokuSolver {
 		}
 		return r;
 	}
-	
-	private String printBoard(char[][] board){
+
+	private String printBoard(char[][] board) {
 		StringBuilder sb = new StringBuilder();
-		for(int i =0 ; i < board.length; i++){
-			for(int t = 0; t< board[i].length ; t++){
+		for (int i = 0; i < board.length; i++) {
+			for (int t = 0; t < board[i].length; t++) {
 				sb.append(board[i][t]).append('\t');
 			}
 			sb.append('\r');
