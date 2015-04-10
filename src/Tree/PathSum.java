@@ -28,6 +28,9 @@ public class PathSum {
 	public static void main(String[] args) {
 		PathSum o = new PathSum();
 
+		/*
+		 * INIT METHOD
+		 */
 		TreeNode t5 = new TreeNode(5);
 		TreeNode t41 = new TreeNode(4);
 		TreeNode t8 = new TreeNode(8);
@@ -46,6 +49,9 @@ public class PathSum {
 		t11.left = t7;
 		t11.right = t2;
 		t42.right = t1;
+		/*
+		 * INIT METHOD END
+		 */
 		
 		int sum = 22;
 		
