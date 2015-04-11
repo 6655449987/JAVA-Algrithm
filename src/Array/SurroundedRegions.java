@@ -29,8 +29,6 @@ package Array;
  * 
  * TIME LIMIT EXCEEDED 
  * 
- * 算法：
- * 任意一个 o点出发，仅能向下或者向右搜索，如果能找到o端点则说明没有被包围
  * 
  * @author shengyuan
  *
