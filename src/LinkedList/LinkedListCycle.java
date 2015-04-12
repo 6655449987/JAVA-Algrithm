@@ -41,19 +41,18 @@ public class LinkedListCycle {
 	 * @param head
 	 * @return
 	 */
-	public boolean hasCycle(ListNode head) {
+    public boolean hasCycle(ListNode head) {
         if(head == null) return false;
-        ListNode first = head;
-        ListNode second = head;
-
-        while(first != null){
-            if(second == null || second.next == null) return false;
-            first = first.next;
-            second = second.next.next;
-            if(first == second) return true;
+        ListNode slow = head;
+        ListNode fast = head;
+        while(slow != null){
+            if(fast == null || fast.next == null) return false;
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) return true;
         }
-        return false; 
-    } 
+        return false;
+    }
 	
 	
 	
