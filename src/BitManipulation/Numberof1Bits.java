@@ -20,14 +20,17 @@ public class Numberof1Bits {
 
 	public static void main(String[] args) {
 		Numberof1Bits o = new Numberof1Bits();
-		int n = 11;
+		int n = 9965453;
 		System.out.println(String.format("The number of '1' bits in %s is %s", n, o.hammingWeight(n) ));
+		System.out.println(String.format("The number of '1' bits in %s is %s", n, o.BETTERSOLUTION_hammingWeight(n) ));
 	}
 	
 	public int hammingWeight(int n) {
     	int count = 0;
+    	int countt = 0;
     	while(n!=0)
         {
+    		System.out.println(String.format("Calculate %s time", ++countt) );
             if((n & 1) == 1)
             	count ++;
             n  = n >>> 1; //Œﬁ∑˚∫≈”““∆
@@ -37,8 +40,10 @@ public class Numberof1Bits {
 	
     public int BETTERSOLUTION_hammingWeight(int n) {
     	int count = 0;
+    	int countt = 0;
     	while(n!=0)
         {
+    		System.out.println(String.format("Calculate %s time", ++countt) );
             n = n&(n-1);
             count++;
         }
