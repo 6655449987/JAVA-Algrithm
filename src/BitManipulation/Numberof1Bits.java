@@ -9,6 +9,9 @@ package BitManipulation;
  * 
  * 算法: 
  * n & (n - 1)
+ * 具体地说，如果nValue为奇数，则二进制形式为X...X1，nValue&(nValue-1)的结果为X...X0；
+ * 如果nValue为偶数，则二进制形式为X...X10...0，nValue&(nValue-1)的结果为X...X00...0；
+ * 相当于每次去掉末尾的1，这样就变成了统计1的个数，&是按位与运算
  * 
  * @author shengyuan
  *
