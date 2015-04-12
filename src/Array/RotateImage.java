@@ -34,7 +34,7 @@ public class RotateImage {
 					int[] cell = new int[] { c, tr };
 					rotateOneCell(cell, length, matrix);
 				}
-				System.out.println(String.format("DEBUG tr = %s \r%s",tr,printMatrix(matrix)));
+//				System.out.println(String.format("DEBUG tr = %s \r%s",tr,printMatrix(matrix)));
 			}
 		}
 	}
@@ -54,7 +54,7 @@ public class RotateImage {
 			carrier = temp;
 			ori = target;
 		}
-		System.out.println(String.format("debug ori[%s,%s] ; temp = %s\r%s",ori[0], ori[1],carrier, printMatrix(matrix)));
+//		System.out.println(String.format("debug ori[%s,%s] ; temp = %s\r%s",ori[0], ori[1],carrier, printMatrix(matrix)));
 	}
 
 	/*
