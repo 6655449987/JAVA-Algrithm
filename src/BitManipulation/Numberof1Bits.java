@@ -13,6 +13,9 @@ package BitManipulation;
  * 如果nValue为偶数，则二进制形式为X...X10...0，nValue&(nValue-1)的结果为X...X00...0；
  * 相当于每次去掉末尾的1，这样就变成了统计1的个数，&是按位与运算
  * 
+ * 衍生:
+ * ((n & (n-1)) == 0) 即判断 n 是不是2的整数次幂
+ * 
  * @author shengyuan
  *
  */
