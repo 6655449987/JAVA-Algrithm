@@ -15,14 +15,71 @@ import java.util.Stack;
  *
  */
 public class GenerateParentheses {
-
+	public int p;
+	List<String> answers = new ArrayList<String>();
+	
 	public static void main(String[] args) {
 		GenerateParentheses o = new GenerateParentheses();
 		List<String> result = new ArrayList<String>();
-		result = o.generateParenthesis(8);
+		o.p = 8;
+		result = o.BETTER_generateParenthesis(o.p);
 		System.out.println(String.format("ArrayList length : %s", result.size()));
 		
 	}
+	
+	/**
+	 * 算法说明：
+	 * 
+	 * 1 - 第一个必须是(
+	 * 2 - 左括号的数量必须比右括号多
+	 * 3 - 括号数量小于限制
+	 * 
+	 * @param p
+	 * @return
+	 */
+	public List<String> BETTER_generateParenthesis(int p) {
+	    
+		
+		answers = new ArrayList<String>();
+	    this.p = p;
+	    helper( 1, 0, "(", "" ); //first has to be "("
+	    return answers;
+	}
+
+	public void helper( int leftP, int rightP, String s, String curr ){
+	    curr += s ;
+
+	    if( leftP == p && rightP == p ){
+	        answers.add( curr );
+	        return;
+	    }
+
+	    // The idea is the leftP always more than or equal to rightP.
+	    if( leftP < rightP || leftP > p || rightP > p ) return;
+
+	    helper( leftP +1, rightP, "(", curr );
+	    helper( leftP, rightP +1, ")", curr );
+
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * MY DUMB WAY
+	 * @param n
+	 * @return
+	 */
     public List<String> generateParenthesis(int n) {
     	
     	Stack left = new Stack();
