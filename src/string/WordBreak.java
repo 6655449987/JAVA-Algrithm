@@ -35,6 +35,10 @@ public class WordBreak {
 	 * 	j 从0 ~ i 遍历  ， 默认0 为true
 	 * 	如果出现jtrue，且，j ~ i间出现子串，则i标记true；，接着往下搜索
 	 * 
+	 * 
+	 * 容易错的地方:
+	 * 	一旦找到j的标记点，不应该直接把j和i之间切掉。而是重新开始新的搜索，这样就可以保留不切的样本
+	 * 
 	 * @param s
 	 * @param dict
 	 * @return
@@ -62,7 +66,7 @@ public class WordBreak {
 	                str.deleteCharAt(0);
 	            }
 	        }
-	        return answer[s.length()];
+	        return answer[s.length()];//直接返回最后一个即可
 	    }
     
 
