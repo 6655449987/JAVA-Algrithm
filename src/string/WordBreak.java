@@ -20,48 +20,48 @@ public class WordBreak {
 
 	public static void main(String[] args) {
 		WordBreak o = new WordBreak();
-		String s = "aaaaaaa";
+		String s = "leetcode";
 		Set<String> wordDict = new HashSet<String>();
-		wordDict.add("aaaa"); wordDict.add("aaa");
+		wordDict.add("leet"); wordDict.add("code");
 		System.out.println(String.format("%s wordBreak : %s", s, o.wordBreak(s, wordDict)));
 	}
 	
-    public boolean wordBreak(String s, Set<String> wordDict) {
-    	String temps = s;
-    	if(s.length() == 0){
-    		return true;
-    	}
-    	boolean match = false;
-        for(int end = 1; end < temps.length(); end ++){
-        	for(int start = 0; start < end ; start ++){
-        		String temp = temps.substring(start, end);
-        		for(String o : wordDict){
-        			if(o.equals(temp)){
-        				if(end != temps.length() && start != 0){
-        					temps = temps.substring(0,start) + temps.substring(end, temps.length());
-                			match = match || wordBreak(temps,wordDict);
-                		} else if(start == 0 && end != temps.length()){
-                			temps = temps.substring(end,temps.length());
-                			match = match ||  wordBreak(temps,wordDict);
-                		} else if(end == temps.length() && start != 0){
-                			temps = temps.substring(0,start);
-                			match = match ||  wordBreak(temps,wordDict);
-                		} else {
-                			for(String oo : wordDict){
-                				if(oo.equals(s)){
-                					match = match ||  true;
-                				} else {
-                					match = match ||  false;
-                				}
-                			}
-                			
-                		}
-        			}
-        		}
-        		
-        	}
-        }
-		return match;
-    }
+	/**
+	 * 
+	 * 简单算法：
+	 * 	i 一次后一一位
+	 * 	j 从0 ~ i 遍历  ， 默认0 为true
+	 * 	如果出现jtrue，且，j ~ i间出现子串，则i标记true；，接着往下搜索
+	 * 
+	 * @param s
+	 * @param dict
+	 * @return
+	 */
+	 public boolean wordBreak(String s, Set<String> dict) {
+	        if (s == null || s.length() == 0
+	         || dict == null || dict.size() == 0)
+	            return false;
+
+	        boolean[] answer = new boolean[s.length() + 1];
+	        answer[0] = true;
+	        for (int i = 1; i <= s.length(); i++) {
+	            StringBuilder str = new StringBuilder(s.substring(0, i));
+	            
+	            
+	            /**
+	             * anser[j] = true ==> 第j位到i位有子串
+	             * 因此，anser[j] == true && dict.contains(str.toString()) ==> 表示第j -> i 位是子串
+	             */
+	            for (int j = 0; j <= i - 1; j++) {
+	                if (answer[j] && dict.contains(str.toString())) {
+	                    answer[i] = true;
+	                    break;
+	                }
+	                str.deleteCharAt(0);
+	            }
+	        }
+	        return answer[s.length()];
+	    }
+    
 
 }
