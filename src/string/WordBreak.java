@@ -28,6 +28,8 @@ public class WordBreak {
 	
 	/**
 	 * 
+	 * 慢爷的代码
+	 * 
 	 * 简单算法：
 	 * 	i 一次后一一位
 	 * 	j 从0 ~ i 遍历  ， 默认0 为true
