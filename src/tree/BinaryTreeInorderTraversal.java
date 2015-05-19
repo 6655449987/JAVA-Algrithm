@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Given a binary tree, return the inorder traversal of its nodes' values.
- * ¼´: ÖĞĞò±éÀú
+ * 
  * 
  * For example:
  * Given binary tree {1,#,2,3},
